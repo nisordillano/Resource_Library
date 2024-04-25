@@ -1,0 +1,31 @@
+.container .jumbotron {
+    background-color: #3c648b;
+    border: 1px solid #020305;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%; /* Change width to 100% */
+}
+
+.lead {
+    font-style: italic;
+    text-align: center;
+    color: rgb(88, 0, 66);
+}
+.display-4{
+ text-align: center;
+}
+
+.form-control {
+    width: 20%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.row {
+    margin-top: 20px;
+}

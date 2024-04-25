@@ -1,0 +1,17 @@
+{% extends "Resource_Library_Register/base.html" %}
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form}}
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-8">
+    <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-download"></i>Submit</button>
+</div>
+<div class="col-md-4">
+    <a href="{% url 'user_list' %}" class="btn btn-secondary btn-block btn-lg">
+        <i class="fas fa-stream"></i> Back to Library
+    </a>
+</div>
+</form>
+{% endblock content %}
