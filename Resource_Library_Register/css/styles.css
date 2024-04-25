@@ -1,6 +1,6 @@
 .container .jumbotron {
-    background-color: #3c648b;
-    border: 1px solid #020305;
+    background-color: #9fe0d8;
+    border: 1px solid #010807;
     border-radius: 10px;
     padding: 20px;
     width: 100%; /* Change width to 100% */
@@ -9,7 +9,7 @@
 .lead {
     font-style: italic;
     text-align: center;
-    color: rgb(88, 0, 66);
+    color: rgb(82, 165, 147);
 }
 .display-4{
  text-align: center;

@@ -2,40 +2,64 @@
 
 {% block content %}
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<style>
+.bold-text {
+    font-weight: bold;
+}
+.table-container {
+    margin-left: 10px;
+    max-width: 1000px; /* Optional: Set maximum width */
+}
+.btn i:hover {
+    color: #010807; 
+    cursor: pointer;
+}
+.center {
+    text-align: center;
+}
+</style>
+
+<div class="table-container">
 <table class="table table-borderless">
     <thead class="border-bottom font-weight-bold">
         <tr>
-            <td>Purpose</td>
-            <td>Name</td>
-            <td>Notes</td>
-            <td>Link</td>
-            <td>
-                <a href="{% url 'resource_insert' %}" class="btn btn-outline-success">
-                    <i class="fas fa-plus"></id> Add New
-                </a>
-            </td>
+            <td class="bold-text">Purpose</td>
+            <td class="bold-text">Name</td>
+            <td class="bold-text">Notes</td>
+            <td class="bold-text">Link</td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
         {% for user in user_list %}
-            <tr><td>{{user.Purpose}}</td>
-                <td>{{user.Name}}</td>
-                <td>{{user.Notes}}</td>
-                <td>{{user.Link}}</td>
-                            
-                <td>
-                    <a href="{% url 'resource_update' user.id %}" class="btn text-secondary px-0">
-                    <i class="far fa-edit fa-lg">edit</i>
-                    </a>
-                    <form action="{% url 'resource_delete' user.id %}" method="post" class="d-inline">
-                        {% csrf_token %}
-                       <button type="submit" class="btn">
-                        <i class="fas fa-trash-alt fa-lg text-danger float-right">remove</i>
-                    </form>
-                  </td>
-            </tr>
-        {% endfor  %}
+    <tr>
+        <td>{{ user.Purpose }}</td>
+        <td>{{ user.Name }}</td>
+        <td>{{ user.Notes }}</td>
+        <td>{{ user.Link }}</td>
+        <td>
+            <a href="{% url 'resource_update' user.id %}" class="btn text-secondary px-2 py-1">
+                <i class="far fa-edit fa-md"></i>
+            </a>
+        </td>
+        <td>
+            <form action="{% url 'resource_delete' user.id %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn">
+                    <i class="fas fa-trash-alt fa-md text-danger"></i>
+                </button>
+            </form>
+        </td>
+    </tr>
+              {% endfor %}
+
     </tbody>
 </table>
-
+<div class="center">
+    <a href="{% url 'resource_insert' %}" class="btn btn-outline-success px-1 py-1">
+        <i class="fas fa-plus"></i> Add New
+    </a>
+</div>
 {% endblock content %}

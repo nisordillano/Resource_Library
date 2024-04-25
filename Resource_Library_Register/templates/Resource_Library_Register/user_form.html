@@ -3,15 +3,55 @@
 {% block content %}
 <form action="" method="post" autocomplete="off">
     {% csrf_token %}
-    {{form}}
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-8">
-    <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-download"></i>Submit</button>
-</div>
-<div class="col-md-4">
-    <a href="{% url 'user_list' %}" class="btn btn-secondary btn-block btn-lg">
-        <i class="fas fa-stream"></i> Back to Library
-    </a>
-</div>
+    <div class="row" style="margin-top: 20px">
+        <div class="col-md-6">
+            <!-- Render Purpose field -->
+            <label for="{{ form.Purpose.id_for_label }}">Purpose:</label>
+            {{ form.Purpose }}
+        </div>
+        <div class="col-md-6">
+            <!-- Render Name field -->
+            <label for="{{ form.Name.id_for_label }}">Name:</label>
+            {{ form.Name }}
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+        <div class="col-md-6">
+            <!-- Render Link field -->
+            <label for="{{ form.Link.id_for_label }}">Link:</label>
+            {{ form.Link }}
+        </div>
+        <div class="col-md-6">
+            <!-- Render Notes field -->
+            <label for="{{ form.Notes.id_for_label }}">Notes:</label>
+            {{ form.Notes }}
+        </div>
+    </div>
+    <!-- Additional fields can be rendered here -->
+    <div class="row mt-2">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-success btn-block btn-md">
+                <i class="fas fa-download"></i>Submit
+            </button>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'user_list' %}" class="btn btn-secondary btn-block btn-md">
+                <i class="fas fa-stream"></i> Back to Library
+            </a>
+        </div>
+    </div>
 </form>
+<style>
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .col-md-6 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column; /* Align items vertically */
+    }
+</style>
 {% endblock content %}

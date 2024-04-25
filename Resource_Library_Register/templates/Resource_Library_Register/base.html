@@ -9,20 +9,59 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- Optionally, include your custom styles -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        @keyframes gradientExpand {
+            0% {
+                background-size: 200% 200%;
+                background-position: bottom right;
+            }
+            100% {
+                background-size: 400% 400%;
+                background-position: center;
+            }
+        }
+
+        body {
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #D2C77D, #DAD094, #DEDEDE, #CBCBCB, #E8E8E8, #D0D0D0, #D2C77D);
+            animation: gradientExpand 8s linear infinite;
+        }
+        .jumbotron {
+            background-color: #ffffff;
+            border: 1px solid #616264;
+            border-radius: 15px;
+            padding: 20px;
+            /* Removed max-width to allow jumbotron to expand */
+            box-shadow: 0px 9px 9px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .jumbotron > *:not(.display, .lead) {
+            text-align: left;
+        }
+
+        .display {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-       <div class="col-md-10 offset-md-1 mt-5">
-        <div class="jumbotron">
-            <h1 class="display-4">Resource Library</h1>
-            <p class="lead">Access. Learn. Thrive</p>
-            <hr class="my-4">
-            {% block content %}
-            {% endblock content %}
-        </div>
+        <div class="col-md-10 offset-md-1 mt-5">
+            <div class="jumbotron">
+                <h1 class="display">Resource Library</h1>
+                <p class="lead">Access. Learn. Thrive</p>
+                <hr class="my-2">
+                {% block content %}
+                {% endblock content %}
+            </div>
         </div>
     </div>
 
